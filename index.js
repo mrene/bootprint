@@ -2,9 +2,6 @@ var customize = require('customize-watch')
 var Q = require('q')
 var write = require('customize-write-files')
 var _ = require('lodash')
-var fs = require('fs')
-var httpGet = require('get-promise')
-var yaml = require('js-yaml')
 var refParser = require('json-schema-ref-parser')
 
 // preconfigured Customize instance.
