@@ -5,6 +5,7 @@ var _ = require('lodash')
 var fs = require('fs')
 var httpGet = require('get-promise')
 var yaml = require('js-yaml')
+var refParser = require('json-schema-ref-parser')
 
 // preconfigured Customize instance.
 module.exports = customize()
@@ -61,31 +62,6 @@ function loadFromFileOrHttp (fileOrUrlOrData) {
   if (!_.isString(fileOrUrlOrData)) {
     return Q(fileOrUrlOrData)
   }
-  // otherwise load data from url or file
-  if (fileOrUrlOrData.match(/^https?:\/\//)) {
-    // Use the "request" package to download data
-    return httpGet(fileOrUrlOrData, {
-      redirect: true,
-      headers: {
-        'User-Agent': 'Bootprint/' + require('./package').version
-      }
-    }).then(function (result) {
-      if (result.status !== 200) {
-        var error = new Error('HTTP request failed with code ' + result.status)
-        error.result = result
-        throw error
-      }
-      return yaml.safeLoad(result.data)
-    }, function (error) {
-      if (error.status) {
-        throw new Error('Got ' + error.status + ' ' + error.data + ' when requesting ' + error.url, 'E_HTTP')
-      } else {
-        throw error
-      }
-    })
-  } else {
-    return Q.nfcall(fs.readFile, fileOrUrlOrData, 'utf8').then(function (data) {
-      return yaml.safeLoad(data)
-    })
-  }
+
+  return Q(refParser.dereference(fileOrUrlOrData))
 }
