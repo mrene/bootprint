@@ -1,8 +1,15 @@
-# bootprint
+# bootprint 
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/bootprint/bootprint.svg)](https://greenkeeper.io/)
+
+[![NPM version](https://badge.fury.io/js/bootprint.svg)](http://badge.fury.io/js/bootprint)
+[![Travis Build Status](https://travis-ci.org/bootprint/bootprint.svg?branch=master)](https://travis-ci.org/bootprint/bootprint)
+[![Coverage Status](https://img.shields.io/coveralls/bootprint/bootprint.svg)](https://coveralls.io/r/bootprint/bootprint)
+
 
 > Converts json and yaml into a static html page using Handlebars and Bootstrap
 
-![Bootprint logo](http://nknapp.github.io/bootprint/img/bootprint.svg)
+![Bootprint logo](artwork/bootprint-logo.svg)
 
 `Bootprint` is a tool for converting JSON-files into static HTML-pages using [{less}](http://lesscss.org),
 [Bootstrap](http://getbootstrap.com) and [Handlebars](http://handlebarsjs.com).
@@ -27,13 +34,13 @@ After installing `bootprint` perform the following steps
 
 ```bash
 # Install template module
-npm install -g bootprint-swagger
+npm install -g bootprint-openapi
 # Run bootprint with the template
-bootprint swagger http://petstore.swagger.io/v2/swagger.json target
+bootprint openapi http://petstore.swagger.io/v2/swagger.json target
 ```
 
 The directory "target" should now contain a file `index.html` and `main.css` which contain a [readable
-form](http://petstore.swagger.io.bp.knappi.org/v2/swagger.json) of the [Swagger-Petstore-Example](http://petstore.swagger.io/).
+form](https://bootprint.knappi.org/public-apis/petstore.swagger.io/v2/swagger.json.html) of the [Swagger-Petstore-Example](http://petstore.swagger.io/).
 
 ## Further documentation Documentation
 

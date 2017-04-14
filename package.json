@@ -1,6 +1,6 @@
 {
   "name": "bootprint",
-  "version": "0.8.3",
+  "version": "1.0.1",
   "description": "Converts json and yaml into a static html page using Handlebars and Bootstrap",
   "main": "index.js",
   "bin": {
@@ -9,48 +9,56 @@
   "preferGlobal": true,
   "scripts": {
     "preformat": "standard --version || npm -g install standard",
-    "format": "standard --format",
+    "format": "standard --fix",
     "pretest": "standard --version || npm -g install standard",
     "test": "mocha --recursive && standard",
     "thought": "thought run -a",
     "prethoughtcheck": "thought --version || npm -g install thought",
     "thoughtcheck": "thought check-engines",
-    "version": "npm run thought",
+    "version": "thoughtful changelog -o -a && npm run thought",
     "preversion": "npm run thoughtcheck"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nknapp/bootprint.git"
+    "url": "https://github.com/bootprint/bootprint.git"
   },
   "author": "Nils Knappmeier",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nknapp/bootprint/issues"
+    "url": "https://github.com/bootprint/bootprint/issues"
   },
-  "homepage": "https://github.com/nknapp/bootprint",
+  "homepage": "https://github.com/bootprint/bootprint",
   "dependencies": {
-    "clarify": "^1.0.5",
     "commander": "^2.6.0",
-    "customize-engine-handlebars": "<1.0.0",
-    "customize-engine-less": "<1.0.0",
-    "customize-watch": "<1.0.0",
-    "customize-write-files": "<1.0.0",
+    "customize-engine-handlebars": "^1.0.0",
+    "customize-engine-less": "^1.0.1",
+    "customize-engine-uglify": "^1.0.0",
+    "customize-watch": "^1.0.0",
+    "customize-write-files": "^1.0.0",
     "debug": "^2.1.2",
     "get-promise": "^1.3.1",
-    "js-yaml": "^3.4.5",
     "json-schema-ref-parser": "^2.2.0",
-    "live-server": "^0.8.1",
-    "lodash": "^3.3.1",
+    "js-yaml": "^3.8.2",
+    "live-server": "^1.2.0",
+    "lodash": "^4.17.4",
     "q": "^1.4.1",
-    "trace": "^2.0.0"
+    "trace-and-clarify-if-possible": "^1.0.0"
   },
   "files": [
     "index.js",
     "bin/bootprint.js"
   ],
+  "config": {
+    "ghooks": {
+      "pre-push": "standard && thoughtful precommit"
+    }
+  },
   "devDependencies": {
-    "bootprint-swagger": "^0.13.1",
     "chai": "^3.4.0",
-    "mocha": "^2.3.3"
+    "dirty-chai": "^1.2.2",
+    "ghooks": "^2.0.0",
+    "m-io": "^0.5.0",
+    "mocha": "^3.2.0",
+    "thoughtful-release": "^0.3.1"
   }
 }

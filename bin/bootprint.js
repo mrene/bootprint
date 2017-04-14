@@ -13,8 +13,11 @@ program.version(_package.version)
   .option('-l, --long-stack', 'Turn on long and clarified stack-traces. Requires Node 4 or newer', enableLongStack)
   .parse(process.argv)
 
-if (program.args.length < 2) {
-  program.help()
+if (program.args.length !== 3) {
+  console.error('\n  Invalid number of command-line arguments. 3 arguments expected, ' +
+     program.args.length + ' found: ' + JSON.stringify(program.args) + '.')
+  console.error('  Please run "' + program.name() + ' --help" for a command-line reference.\n')
+  process.exit(1)
 }
 
 // Options from commander
@@ -40,7 +43,14 @@ if (program.developmentMode) {
   }
   liveServer.start(params)
 } else {
-  bootprint.generate().done(console.log)
+  bootprint.generate().done(console.log, function (error) {
+    if (error.cause === 'bootprint-load-data' && error.code === 'ENOENT') {
+      // Provide a readable error message (without stack trace) if the source file is missing.
+      console.error('\n  ' + error.message + '\n')
+    } else {
+      throw error
+    }
+  })
 }
 
 /**
@@ -71,8 +81,7 @@ function requireTemplateModule (moduleName) {
  */
 function enableLongStack () {
   Error.stackTraceLimit = 100
-  require('trace')
-  require('clarify')
+  require('trace-and-clarify-if-possible')
 }
 
 /**

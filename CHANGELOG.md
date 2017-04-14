@@ -1,5 +1,35 @@
 # Release notes
 
+<a name="current-release"></a>
+# Version 1.0.1 (Fri, 23 Dec 2016 20:35:00 GMT)
+
+* [824bb17](https://github.com/bootprint/bootprint/commit/824bb17) Update documentation (bootprint-swagger is deprecated) - Nils Knappmeier
+
+# Version 1.0.0 (Fri, 23 Dec 2016 20:22:16 GMT)
+
+* [2d465f5](https://github.com/bootprint/bootprint/commit/2d465f5) Prepare for 1.0 release - Nils Knappmeier
+
+# Version 0.10.0 (Sun, 18 Dec 2016 14:05:39 GMT)
+
+* [c8fe6b5](https://github.com/bootprint/bootprint/commit/c8fe6b5) Add support for including javascript-files with uglify-js - Nils Knappmeier
+
+# Version 0.9.0 (Sat, 17 Dec 2016 21:59:21 GMT)
+
+* [e61426b](https://github.com/bootprint/bootprint/commit/e61426b) Better error message when source file cannot be found - Nils Knappmeier
+* [9d9c0f8](https://github.com/bootprint/bootprint/commit/9d9c0f8) Better error-message and tests for invalid number of cli-arguments - Nils Knappmeier
+* [c273633](https://github.com/bootprint/bootprint/commit/c273633) Fix check for correct number of command-line arguments - Nils Knappmeier
+* [0290846](https://github.com/bootprint/bootprint/commit/0290846) fixes YAMLException that occurs on some openapi yaml - Kit Plummer
+
+# Version 0.8.5 (Tue, 15 Mar 2016 14:18:06 GMT)
+
+* [5ec577c](https://github.com/bootprint/bootprint/commit/5ec577c) Bootprint logo is now at bootprint.github.io - Nils Knappmeier
+
+# Version 0.8.4 (Tue, 15 Mar 2016 14:06:07 GMT)
+
+* [22c9c48](https://github.com/bootprint/bootprint/commit/22c9c48) Adjust travis-configuration - Nils Knappmeier
+* [16a5072](https://github.com/bootprint/bootprint/commit/16a5072) Move to bootprint-organization and enable ghook for StandardJS - Nils Knappmeier
+
+
 ## v0.8.3 - 2015-12-24
 
 ### Fix
@@ -123,4 +153,3 @@
 ### Fixed
 
 - [#1: cli.js not found when installing from npm or master](https://github.com/nknapp/bootprint/issues/1)
-
